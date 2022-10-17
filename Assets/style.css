@@ -1,0 +1,53 @@
+* {
+    font-family:Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    background-color: rgb(250, 197, 228);
+}
+
+main {
+    margin: 100px;
+    text-align: center;
+}
+
+.hide {
+    display:none;
+}
+
+main h1 {
+    border: solid;
+    border-radius: 15px;
+    background-color: rgb(201, 230, 255);
+}
+
+main p {
+    font-style: italic;
+}
+
+button {
+    border-radius: 10px;
+    background-color: rgb(201, 230, 255);
+    display: flex;
+    margin:auto;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 12px;
+    
+}
+
+button:hover {
+    background-color: rgb(87, 171, 245);
+    transition: .3s;
+    box-shadow: 5px 5px 10px grey;
+}
+
+.viewScores {
+    position: absolute;
+    top: 20px;
+    font-style: italic;
+}
+
+.timer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
