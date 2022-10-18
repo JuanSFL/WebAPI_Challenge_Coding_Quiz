@@ -4,6 +4,10 @@
     background-color: rgb(250, 197, 228);
 }
 
+body{
+    margin: 100px auto 0 auto
+}
+
 main {
     margin: 100px;
     text-align: center;
@@ -14,16 +18,20 @@ main {
 }
 
 main h1 {
-    border: solid;
+    border: solid ;
     border-radius: 15px;
     background-color: rgb(201, 230, 255);
+    box-shadow: 5px 5px 10px grey;
 }
 
 main p {
     font-style: italic;
+    font-size: 1.2em;
+    margin: 10px 0;
 }
 
 button {
+    border: solid;
     border-radius: 10px;
     background-color: rgb(201, 230, 255);
     display: flex;
@@ -35,9 +43,10 @@ button {
 }
 
 button:hover {
-    background-color: rgb(87, 171, 245);
+    background-color: rgb(141, 196, 245);
     transition: .3s;
     box-shadow: 5px 5px 10px grey;
+    cursor:pointer;
 }
 
 .viewScores {
