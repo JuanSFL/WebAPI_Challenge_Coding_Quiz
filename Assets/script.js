@@ -96,4 +96,5 @@ function getQuestion() {
 
   }
   
+  
 startBtn.onclick = startQuiz;
