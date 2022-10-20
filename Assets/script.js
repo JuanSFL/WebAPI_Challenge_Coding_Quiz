@@ -3,7 +3,9 @@ var startBtn = document.querySelector("#startingScreen");
 var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#choices");
 var timerEl = document.querySelector("#timer");
-
+var feedbackEl = document.querySelector("#feedback")
+var endscreenEl = document.querySelector("#endScreen")
+var submitBtn = document.querySelector("#submit")
 // quiz staring state
 var currentQuestionIndex = 0;
 var time = 100 ;
@@ -52,7 +54,7 @@ function getQuestion() {
       choiceButton.setAttribute("class", "choice");
       choiceButton.setAttribute("value", choice);
   
-      choiceButton.textContent = i + 1 + "." + choice;
+      choiceButton.textContent = i  + 1 + "." + choice;
   
       // event listener to each answer choice
       choiceButton.onclick = choiceClick;
@@ -67,7 +69,29 @@ function getQuestion() {
     if (this.value !== questions[currentQuestionIndex].answer) {
       // time penalty if user selects a wrong answer.
       time -=10;
-    }
+    
+
+    // display new time on page
+    timerEl.textContent = time;
+    feedbackEl.textContent = "Wrong! -10s";
+    feedbackEl.style.color = "red";
+    feedbackEl.style.fontSize = "50px";
+    feedbackEl.style.textDecoration = "underline"
+  } else {
+    feedbackEl.textContent = "Correct!";
+    feedbackEl.style.color = "green";
+    feedbackEl.style.fontSize = "50px";
+    feedbackEl.style.textDecoration = "underline"
+  }
+
+  // display "correct" or "wrong"
+  feedbackEl.setAttribute("class", "feedback");
+  setTimeout(function() {
+    feedbackEl.setAttribute("class", "feedbackHide");
+  }, 750);
+
+
+
     //displays next question in the index
     currentQuestionIndex++;
 
@@ -87,14 +111,15 @@ function getQuestion() {
     questionsEl.setAttribute("class", "hide")
 
     //display end screen
-
-    //display a taxt box to show initials
+    endscreenEl.removeAttribute("class","hide")
+    
 
     //save highscore
 
     //display previous highscores
 
   }
-  
+
   
 startBtn.onclick = startQuiz;
+

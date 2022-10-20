@@ -2,13 +2,14 @@
 <html lang="en"
     <head>
         <title>Coding Quiz</title>
+        <!--CSS File-->
         <link rel="stylesheet" href="Assets/style.css">
 
     </head>
 
     <body>
-        <!--link with an href to an external html link displaying past scores-->
-        <aside class="viewScores"><a href=""> View Scores</a></aside>
+        <!--Link with an href to an external html link displaying past scores-->
+        <aside class="viewScores"><a href="highscores.html"> View Scores</a></aside>
         <!--This aside tag will serve as the timer which indicates how much time is left to finish the quiz.-->
         <aside class="timer">
             Time: <span id="timer">0</span>
@@ -21,17 +22,32 @@
                 <p>
                     Let's test your knowledge about coding! Here are some JavaScript related questions. Try to get a highscore and note that each incorrectly answered question will result in a ten second time penalty.
                 </p>
-                <!--this button is part of the starting screen but it will disappear along with all the other elements in the  starting screen section.-->
+                <!--This button is part of the starting screen but it will disappear along with all the other elements in the  starting screen section.-->
                 <button id="start">Start Quiz</button>
             </section>
 
-            <!--this section will appear once the 'start' button from the previous section is pressed.-->
+            <!--This section will appear once the 'start' button from the previous section is pressed.-->
             <section id="questions" class="hide">
                 <h2 id="question-title"></h2>
                 <div id="choices" class="choices"></div>
             </section>
 
+            <section id="feedback" class="feedbackHide"></section>
+
+            <section id="endScreen" class="hide">
+                <h2>All Done!!!</h2>
+                <p>
+                    Your final score is: <span id="finalScore"></span>.
+                </p>
+
+                <p>
+                    Enter your name to save your high score: <input type="text" id="name" max="2"/>
+                    <button id="submitButton">Submit</button>
+                </p>
+            </section>
+
         </main>
+        <!--Javascript files-->
         <script src="Assets/script.js"></script>
         <script src="Assets/questions.js"></script>
         
