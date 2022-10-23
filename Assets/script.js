@@ -1,18 +1,21 @@
 //elements to navigate through the DOM tree
-var startBtn = document.querySelector("#startingScreen");
+var startBtn = document.querySelector("#start");
 var questionsEl = document.querySelector("#questions");
 var choicesEl = document.querySelector("#choices");
 var timerEl = document.querySelector("#timer");
 var feedbackEl = document.querySelector("#feedback")
 var endscreenEl = document.querySelector("#endScreen")
-var submitBtn = document.querySelector("#submit")
+var submitBtn = document.querySelector("#submitButton")
+var nameEl = document.querySelector("#name")
+
 // quiz staring state
 var currentQuestionIndex = 0;
 var time = 100 ;
+
 //variable to initiate timer
 var timerId;
 
-
+//function that begins the quiz
 function startQuiz() {
     // hide start screen
     var startingScreenEl = document.getElementById("startingScreen");
@@ -65,15 +68,15 @@ function getQuestion() {
   }
 
   function choiceClick() {
-    // confirms if choice selected is correct or not
+    // confirms if the choice selected is correct or not
     if (this.value !== questions[currentQuestionIndex].answer) {
       // time penalty if user selects a wrong answer.
       time -=10;
     
 
-    // display new time on page
+    // displays new time on page
     timerEl.textContent = time;
-    feedbackEl.textContent = "Wrong! -10s";
+    feedbackEl.textContent = "Incorrect! -10s";
     feedbackEl.style.color = "red";
     feedbackEl.style.fontSize = "50px";
     feedbackEl.style.textDecoration = "underline"
@@ -84,7 +87,7 @@ function getQuestion() {
     feedbackEl.style.textDecoration = "underline"
   }
 
-  // display "correct" or "wrong"
+  // display "correct" or "incorrect -10s"
   feedbackEl.setAttribute("class", "feedback");
   setTimeout(function() {
     feedbackEl.setAttribute("class", "feedbackHide");
@@ -109,17 +112,40 @@ function getQuestion() {
     clearInterval(timerId)
     //hide questions section
     questionsEl.setAttribute("class", "hide")
-
     //display end screen
     endscreenEl.removeAttribute("class","hide")
-    
-
     //save highscore
-
+    var finalScoreEl = document.getElementById("finalScore");
+    finalScoreEl.textContent = time;
     //display previous highscores
+  }
 
+  function saveHighscore() {
+    // retrieves name that is put into the textbox
+    var name = nameEl.value.trim();
+  
+    if (name !== "") {
+      // get saved scores from localstorage, or if there is none, set to empty array
+      var highScores =
+        JSON.parse(window.localStorage.getItem("Scores")) || [];
+  
+      // formats final score for current user
+      var finalScore = {
+        name: name,
+        score: time
+      };
+  
+      // saves score to localstorage
+      highScores.push(finalScore);
+      window.localStorage.setItem("Scores", JSON.stringify(highScores));
+  
+      // redirects user to the score page
+      window.location.href = "highscores.html";
+    }
   }
 
   
+
 startBtn.onclick = startQuiz;
 
+submitBtn.onclick = saveHighscore;

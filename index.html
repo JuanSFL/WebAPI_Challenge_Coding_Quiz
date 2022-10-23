@@ -16,36 +16,38 @@
         </aside>
 
         <main>
-            <!--The starting screen will be the first thing the user sees before he begins the quiz.-->
-            <section id="startingScreen" class="start">
-                <h1>Coding Quiz!!!</h1>
-                <p>
-                    Let's test your knowledge about coding! Here are some JavaScript related questions. Try to get a highscore and note that each incorrectly answered question will result in a ten second time penalty.
-                </p>
-                <!--This button is part of the starting screen but it will disappear along with all the other elements in the  starting screen section.-->
-                <button id="start">Start Quiz</button>
-            </section>
+            
+            <!--The first thing the user sees before they begin the quiz-->
+                <section id="startingScreen" class="start">
+                    <h1>Coding Quiz!!!</h1>
+                    <p>
+                        Let's test your knowledge about coding! Here are some JavaScript related questions. Try to get a highscore and note that each incorrectly answered question will result in a ten second time penalty.
+                    </p>
+                        
+                        <!--This button is part of the starting screen but it will disappear along with all the other elements in the  starting screen section.-->
+                    <button id="start">Start Quiz</button>
+                </section>
+                
+                <!--This section will appear once the 'start' button from the previous section is pressed.-->
+                <section id="questions" class="hide">
+                    <h2 id="question-title"></h2>
+                    <div id="choices" class="choices"></div>
+                </section>
+                <!--This will be where the feedback: Correct or Incorrect will be displayed-->
+                <section id="feedback" class="feedbackHide"></section>
 
-            <!--This section will appear once the 'start' button from the previous section is pressed.-->
-            <section id="questions" class="hide">
-                <h2 id="question-title"></h2>
-                <div id="choices" class="choices"></div>
-            </section>
+                <section id="endScreen" class="hide">
+                    <h2>All Done!!!</h2>
+                    <p>
+                        Your final score is: <span id="finalScore"></span>.
+                    </p>
 
-            <section id="feedback" class="feedbackHide"></section>
-
-            <section id="endScreen" class="hide">
-                <h2>All Done!!!</h2>
-                <p>
-                    Your final score is: <span id="finalScore"></span>.
-                </p>
-
-                <p>
-                    Enter your name to save your high score: <input type="text" id="name" max="2"/>
-                    <button id="submitButton">Submit</button>
-                </p>
-            </section>
-
+                    <p>
+                        Enter your name to save your high score: <input type="text" id="name" max="2"/>
+                        <button id="submitButton">Submit</button>
+                    </p>
+                </section>
+          
         </main>
         <!--Javascript files-->
         <script src="Assets/script.js"></script>
